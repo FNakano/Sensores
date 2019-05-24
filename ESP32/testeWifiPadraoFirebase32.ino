@@ -1,11 +1,11 @@
 #include <WiFi.h>        // Include the Wi-Fi library
 #include "FirebaseESP32.h"
  
-const char* ssid     = "Alexandre";         // The SSID (name) of the Wi-Fi network you want to connect to
-const char* password = "lele8c35aebc";     // The password of the Wi-Fi network
+const char* ssid     = "nome-wifi";         // The SSID (name) of the Wi-Fi network you want to connect to
+const char* password = "senhawifi";     // The password of the Wi-Fi network
 
-#define FIREBASE_HOST "redesensoresgit.firebaseio.com" //Do not include https:// in FIREBASE_HOST
-#define FIREBASE_AUTH "Big6OmN1pQLrHByhrVI99Ne5Mfaq3PvyLC0wnz7G"
+#define FIREBASE_HOST "host.firebaseio.com" //Do not include https:// in FIREBASE_HOST
+#define FIREBASE_AUTH "databasesecret"
 
 //Define Firebase Data object
 FirebaseData firebaseData;
