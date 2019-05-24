@@ -6,8 +6,8 @@
 
 /*------------------ EDUROAM*/
 #include "esp_wpa2.h" //wpa2 library for connections to Enterprise networks
-#define EAP_IDENTITY "10723795@usp.br" //if connecting from another corporation, use identity@organisation.domain in Eduroam 
-#define EAP_PASSWORD "ZXASQ!W@8c35aebc" //your Eduroam password
+#define EAP_IDENTITY "xxxxxx@usp.br" //if connecting from another corporation, use identity@organisation.domain in Eduroam 
+#define EAP_PASSWORD "senha" //your Eduroam password
 const char* ssid = "eduroam"; // Eduroam SSID
 int counter=0;
 /*******/
