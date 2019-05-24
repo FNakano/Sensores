@@ -13,8 +13,8 @@ int counter=0;
 /*******/
 
 //Firebase Configs
-#define FIREBASE_HOST "redesensoresgit.firebaseio.com" //Do not include https:// in FIREBASE_HOST
-#define FIREBASE_AUTH "Big6OmN1pQLrHByhrVI99Ne5Mfaq3PvyLC0wnz7G"
+#define FIREBASE_HOST "host.firebaseio.com" //Do not include https:// in FIREBASE_HOST
+#define FIREBASE_AUTH "databasesecret"
 //Define Firebase Data object
 FirebaseData firebaseData;
 
