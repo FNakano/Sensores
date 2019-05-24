@@ -8,10 +8,10 @@
 #include <Adafruit_BMP280.h>
 
 // Set these to run example.
-#define FIREBASE_HOST "redesensores1.firebaseio.com"
-#define FIREBASE_AUTH "NKSXr05fI7xdHHuQ1GpXx1vJFONmNbl2xUzJ8Fl3"
-#define WIFI_SSID "MY ASUS"
-#define WIFI_PASSWORD "ggwp123456"
+#define FIREBASE_HOST "nomedohost.firebaseio.com"
+#define FIREBASE_AUTH "segredo-database"
+#define WIFI_SSID "Nome wifi"
+#define WIFI_PASSWORD "senha wifi"
 
 //BMP280
 Adafruit_BMP280 bme; // I2C
