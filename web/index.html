@@ -39,32 +39,35 @@
     <div class="container-fluid" style="margin-top: 2rem;">
         <div class="row">
             <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Painel de Controle</h1>
                 </div>
 
                 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-                        <a class="navbar-brand" style="background-color: inherit; box-shadow: none;" href="#">Selecione a opção</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                          <ul class="navbar-nav">
+                    <a class="navbar-brand" style="background-color: inherit; box-shadow: none;" href="#">Selecione a
+                        opção</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
                             <li class="nav-item active">
-                              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Features</a>
+                                <a class="nav-link" href="#">Features</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Pricing</a>
+                                <a class="nav-link" href="#">Pricing</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                             </li>
-                          </ul>
-                        </div>
-                      </nav>
+                        </ul>
+                    </div>
+                </nav>
 
                 <div class="row mb-4">
                     <div class="col-12 col-lg-12 col-xl ">
@@ -75,7 +78,7 @@
                                     <div class="col">
                                         <!-- Title -->
                                         <h6 class="card-title text-uppercase text-muted mb-2">
-                                            LDR
+                                            Luminosidade
                                         </h6>
 
                                         <!-- Heading -->
@@ -199,35 +202,77 @@
                         </div>
 
                     </div>
+
+                    <div class="col-12 col-lg-6 col-xl">
+
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+
+                                        <!-- Title -->
+                                        <h6 class="card-title text-uppercase text-muted mb-2">
+                                            CO2
+                                        </h6>
+
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col-auto">
+
+                                                <!-- Heading -->
+                                                <span class="h2 mr-2 mb-0" id="cardCO2"></span>
+
+                                            </div>
+                                        </div> <!-- / .row -->
+
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <!-- Icon -->
+                                        <span class="h2 fe fe-clipboard text-muted mb-0"></span>
+
+                                    </div>
+                                </div> <!-- / .row -->
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                
+
 
                 <div id="chartContainerLDR" style="height: 300px; width: 100%;"></div>
                 <div id="chartContainerTemp" style="height: 300px; width: 100%;"></div>
                 <div id="chartContainerUmidade" style="height: 300px; width: 100%;"></div>
+                <div id="chartContainerCO2" style="height: 300px; width: 100%;"></div>
 
                 <h2>Tabela sensores</h2>
                 <div class="table-responsive">
-                    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+                        width="100%">
                         <thead>
                             <tr>
                                 <th class="th-sm">LDR
-                
+
                                 </th>
                                 <th class="th-sm">Pressão
-                
+
                                 </th>
                                 <th class="th-sm">Temperatura
-                
+
                                 </th>
                                 <th class="th-sm">Umidade
-                
+
+                                </th>
+                                <th class="th-sm">CO2
+
                                 </th>
                             </tr>
                         </thead>
                         <tbody id="tableBody">
-                
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -238,6 +283,8 @@
                                 <th>Temperatura
                                 </th>
                                 <th>Umidade
+                                </th>
+                                <th>CO2
                                 </th>
                             </tr>
                         </tfoot>
@@ -258,72 +305,116 @@
     <script src="js/main.js"></script>
     <script>
 
-            window.onload = function () {
-                var dbRef = firebase.database().ref("/3C:71:BF:9E:2A:50");
-                dbRef.once('value', (snap) => {
-                    var dadosGraficoLDR = [];
-                    var dadosGraficoTempBME = [];
-                    var dadosGraficoUmidadeBME = [];
-                    snap.forEach(function (data) {
-                        dadosGraficoLDR.push({ y: data.val().LDR });
-                        dadosGraficoTempBME.push({ y: data.val().TempBME });
-                        dadosGraficoUmidadeBME.push({ y: data.val().UmidadeBME });
-                    })
 
-                    var chartLDR = new CanvasJS.Chart("chartContainerLDR", {
-                        zoomEnabled: true,
-                        animationEnabled: true,
-                        theme: "light2",
-                        title: {
-                            text: "LDR - Sensor de Luminosidade"
-                        },
-                        axisY: {
-                            includeZero: false
-                        },
-                        data: [{
-                            type: "line",
-                            dataPoints: dadosGraficoLDR
-                        }]
-                    });
-                    chartLDR.render();
 
-                    var chartTemp = new CanvasJS.Chart("chartContainerTemp", {
-                        zoomEnabled: true,
-                        animationEnabled: true,
-                        theme: "light2",
-                        title: {
-                            text: "Temperatura BME"
-                        },
-                        axisY: {
-                            includeZero: false
-                        },
-                        data: [{
-                            type: "line",
-                            dataPoints: dadosGraficoTempBME
-                        }]
-                    });
-                    chartTemp.render();
+        window.onload = function () {
+            var dbRef = firebase.database().ref("/3C:71:BF:9E:2A:50");
 
-                    var chartUmidade = new CanvasJS.Chart("chartContainerUmidade", {
-                        zoomEnabled: true,
-                        animationEnabled: true,
-                        theme: "light2",
-                        title: {
-                            text: "Umidade BME"
-                        },
-                        axisY: {
-                            includeZero: false
-                        },
-                        data: [{
-                            type: "line",
-                            dataPoints: dadosGraficoUmidadeBME
-                        }]
-                    });
-                    chartUmidade.render();
+            //Atualiza os cards a cada push
+            dbRef.on('child_added', function (snapshot) {
+                //console.log(snapshot.val());
+                var cardLDR = document.getElementById('cardLDR');
+                var cardUmidade = document.getElementById('cardUmidade');
+                var cardPressao = document.getElementById('cardPressao');
+                var cardTemperatura = document.getElementById('cardTemperatura');
+                var cardCO2 = document.getElementById('cardCO2');
+                cardLDR.innerText = snapshot.val().LDR;
+                cardUmidade.innerText = snapshot.val().UmidadeBME + " %";
+                cardPressao.innerText = snapshot.val().PressaoBME + " hPa"
+                cardTemperatura.innerText = snapshot.val().TempBME + " °C";
+                cardCO2.innerText = snapshot.val().CO2 + " ppm";
+            })
+
+            dbRef.once('value', (snap) => {
+                var dadosGraficoCO2 = [];
+                var dadosGraficoLDR = [];
+                var dadosGraficoTempBME = [];
+                var dadosGraficoUmidadeBME = [];
+                snap.forEach(function (data) {
+                    let varData = new Date(data.val().Ano, data.val().Mes, data.val().Dia, data.val().Hora, data.val().Minuto, data.val().Segundo);
+                    dadosGraficoLDR.push({ x: varData, y: data.val().LDR });
+                    dadosGraficoTempBME.push({ x: varData, y: data.val().TempBME });
+                    dadosGraficoUmidadeBME.push({ x: varData, y: data.val().UmidadeBME });
+                    dadosGraficoCO2.push({ x: varData, y: data.val().CO2 });
                 })
-            }//Fim window.onload
 
-        </script>
+                var chartLDR = new CanvasJS.Chart("chartContainerLDR", {
+                    zoomEnabled: true,
+                    animationEnabled: true,
+                    theme: "light2",
+                    title: {
+                        text: "LDR - Sensor de Luminosidade"
+                    },
+                    axisY: {
+                        includeZero: false
+                    },
+                    axisX: {
+                        //xValueFormatString: "DD MMM hh:mm:ss"
+                    },
+                    data: [{
+                        type: "line",
+                        markerType: "none",
+                        xValueFormatString: "DD/MM/YY hh:mm:ss",
+                        dataPoints: dadosGraficoLDR
+                    }]
+                });
+                chartLDR.render();
+
+                var chartTemp = new CanvasJS.Chart("chartContainerTemp", {
+                    zoomEnabled: true,
+                    animationEnabled: true,
+                    theme: "light2",
+                    title: {
+                        text: "Temperatura BME"
+                    },
+                    axisY: {
+                        includeZero: false
+                    },
+                    data: [{
+                        type: "line",
+                        markerType: "circle",
+                        dataPoints: dadosGraficoTempBME
+                    }]
+                });
+                chartTemp.render();
+
+                var chartUmidade = new CanvasJS.Chart("chartContainerUmidade", {
+                    zoomEnabled: true,
+                    animationEnabled: true,
+                    theme: "light2",
+                    title: {
+                        text: "Umidade BME"
+                    },
+                    axisY: {
+                        includeZero: false
+                    },
+                    data: [{
+                        type: "line",
+                        dataPoints: dadosGraficoUmidadeBME
+                    }]
+                });
+                chartUmidade.render();
+
+                var chartUmidade = new CanvasJS.Chart("chartContainerCO2", {
+                    zoomEnabled: true,
+                    animationEnabled: true,
+                    theme: "light2",
+                    title: {
+                        text: "CO2"
+                    },
+                    axisY: {
+                        includeZero: false
+                    },
+                    data: [{
+                        type: "line",
+                        dataPoints: dadosGraficoCO2
+                    }]
+                });
+                chartUmidade.render();
+            })
+        }//Fim window.onload
+
+    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -339,10 +430,10 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <script type="text/javascript" src="js/addons/datatables.min.js"></script>
     <script>
-            var dbRef = firebase.database().ref("/3C:71:BF:9E:2A:50").orderByKey();
-            dbRef.once('value', snap => {
-              var tableBody = document.getElementById('tableBody');
-              snap.forEach(function (data) {
+        var dbRef = firebase.database().ref("/3C:71:BF:9E:2A:50").orderByKey();
+        dbRef.once('value', snap => {
+            var tableBody = document.getElementById('tableBody');
+            snap.forEach(function (data) {
                 var tr = document.createElement('tr');
                 var td1 = document.createElement('td');
                 td1.innerText = data.val().LDR;
@@ -356,18 +447,21 @@
                 var td4 = document.createElement('td');
                 td4.innerText = data.val().UmidadeBME;
                 tr.appendChild(td4);
-                
+                var td5 = document.createElement('td');
+                td5.innerText = data.val().CO2;
+                tr.appendChild(td5);
+
                 //console.log(tr);
                 tableBody.appendChild(tr);
-              })
-        
-            }).then(function () {
-              $('#dtBasicExample').DataTable({
-                "ordering": false
-              });
-              $('.dataTables_length').addClass('bs-select');
             })
-        
+
+        }).then(function () {
+            $('#dtBasicExample').DataTable({
+                "ordering": false
+            });
+            $('.dataTables_length').addClass('bs-select');
+        })
+
     </script>
 </body>
 
