@@ -9,8 +9,8 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-//var database = firebase.database();
 
+/*
 const puxarNovosDados = () => {
     var bigOne = document.getElementById('bigOne');
     var dbRef = firebase.database().ref("/3C:71:BF:9E:2A:50");
@@ -44,7 +44,7 @@ dbRef.on('child_added', function (snapshot) {
     cardPressao.innerText = snapshot.val().PressaoBME + " hPa"
     cardTemperatura.innerText = snapshot.val().TempBME + " °C";
 })
-
+*/
 
 
 
