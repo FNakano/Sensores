@@ -331,7 +331,7 @@
                 var dadosGraficoTempBME = [];
                 var dadosGraficoUmidadeBME = [];
                 snap.forEach(function (data) {
-                    let varData = new Date(data.val().Ano, data.val().Mes, data.val().Dia, data.val().Hora, data.val().Minuto, data.val().Segundo);
+                    let varData = new Date(data.val().Ano, (data.val().Mes - 1), data.val().Dia, data.val().Hora, data.val().Minuto, data.val().Segundo);
                     dadosGraficoLDR.push({ x: varData, y: data.val().LDR });
                     dadosGraficoTempBME.push({ x: varData, y: data.val().TempBME });
                     dadosGraficoUmidadeBME.push({ x: varData, y: data.val().UmidadeBME });
