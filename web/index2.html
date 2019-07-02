@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <title>Rede de Sensores - EACH-USP</title>
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/addons/datatables.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow .header">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Sensores EACH USP</a>
+        <div class="dropdown text-left col-md-10 col-sm-9">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Selecione a base meteorológica
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">EACH-USP Oeste</a>
+                <a class="dropdown-item" href="#">EACH-USP Leste</a>
+                <a class="dropdown-item" href="#">Butantã</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid" style="margin-top: 2rem;">
+        <div class="row">
+            <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Painel de Controle</h1>
+                </div>
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+                    <a class="navbar-brand" style="background-color: inherit; box-shadow: none;" href="#">Selecione a
+                        opção</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="row mb-4">
+                    <div class="col-12 col-lg-12 col-xl ">
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <!-- Title -->
+                                        <h6 class="card-title text-uppercase text-muted mb-2">
+                                            Luminosidade
+                                        </h6>
+
+                                        <!-- Heading -->
+                                        <span class="h2 mb-0" id="cardLDR">
+                                        </span>
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <!-- Icon -->
+                                        <span class="h2 fe fe-dollar-sign text-muted mb-0"></span>
+
+                                    </div>
+                                </div> <!-- / .row -->
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl">
+
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+
+                                        <!-- Title -->
+                                        <h6 class="card-title text-uppercase text-muted mb-2">
+                                            Umidade
+                                        </h6>
+
+                                        <!-- Heading -->
+                                        <span class="h2 mb-0" id="cardUmidade"></span>
+
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <!-- Icon -->
+                                        <span class="h2 fe fe-briefcase text-muted mb-0"></span>
+
+                                    </div>
+                                </div> <!-- / .row -->
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl">
+
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+
+                                        <!-- Title -->
+                                        <h6 class="card-title text-uppercase text-muted mb-2">
+                                            Pressão
+                                        </h6>
+
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col-auto">
+
+                                                <!-- Heading -->
+                                                <span class="h2 mr-2 mb-0" id="cardPressao"></span>
+
+                                            </div>
+                                        </div> <!-- / .row -->
+
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <!-- Icon -->
+                                        <span class="h2 fe fe-clipboard text-muted mb-0"></span>
+
+                                    </div>
+                                </div> <!-- / .row -->
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl">
+
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+
+                                        <!-- Title -->
+                                        <h6 class="card-title text-uppercase text-muted mb-2">
+                                            Temperatura
+                                        </h6>
+
+                                        <!-- Heading -->
+                                        <span class="h2 mb-0" id="cardTemperatura"></span>
+
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <!-- Chart -->
+                                        <div class="chart chart-sparkline">
+                                            <div class="chartjs-size-monitor">
+                                                <div class="chartjs-size-monitor-expand">
+                                                    <div class=""></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <canvas class="chart-canvas chartjs-render-monitor" id="sparklineChart"
+                                                width="75" height="35"
+                                                style="display: block; width: 75px; height: 35px;"></canvas>
+                                        </div>
+
+                                    </div>
+                                </div> <!-- / .row -->
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-lg-6 col-xl">
+
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+
+                                        <!-- Title -->
+                                        <h6 class="card-title text-uppercase text-muted mb-2">
+                                            CO2
+                                        </h6>
+
+                                        <div class="row align-items-center no-gutters">
+                                            <div class="col-auto">
+
+                                                <!-- Heading -->
+                                                <span class="h2 mr-2 mb-0" id="cardCO2"></span>
+
+                                            </div>
+                                        </div> <!-- / .row -->
+
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <!-- Icon -->
+                                        <span class="h2 fe fe-clipboard text-muted mb-0"></span>
+
+                                    </div>
+                                </div> <!-- / .row -->
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div id="chartContainerLDR" style="height: 300px; width: 100%;"></div>
+                <div id="chartContainerTemp" style="height: 300px; width: 100%;"></div>
+                <div id="chartContainerUmidade" style="height: 300px; width: 100%;"></div>
+                <div id="chartContainerCO2" style="height: 300px; width: 100%;"></div>
+
+                <h2>Tabela sensores</h2>
+                <div class="table-responsive">
+                    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+                        width="100%">
+                        <thead>
+                            <tr>
+                                <th class="th-sm">LDR
+
+                                </th>
+                                <th class="th-sm">Pressão
+
+                                </th>
+                                <th class="th-sm">Temperatura
+
+                                </th>
+                                <th class="th-sm">Umidade
+
+                                </th>
+                                <th class="th-sm">CO2
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>LDR
+                                </th>
+                                <th>Pressão
+                                </th>
+                                <th>Temperatura
+                                </th>
+                                <th>Umidade
+                                </th>
+                                <th>CO2
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div id="inserirDados"></div>
+    <div id="novosDados"></div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script src="js/main.js"></script>
+    <script>
+
+
+
+        window.onload = function () {
+            var dbRef = firebase.database().ref("/3C:71:BF:9E:30:FC");
+
+            //Atualiza os cards a cada push
+            dbRef.on('child_added', function (snapshot) {
+                //console.log(snapshot.val());
+                var cardLDR = document.getElementById('cardLDR');
+                var cardUmidade = document.getElementById('cardUmidade');
+                var cardPressao = document.getElementById('cardPressao');
+                var cardTemperatura = document.getElementById('cardTemperatura');
+                var cardCO2 = document.getElementById('cardCO2');
+                cardLDR.innerText = snapshot.val().LDR;
+                cardUmidade.innerText = snapshot.val().UmidadeBME + " %";
+                cardPressao.innerText = snapshot.val().PressaoBME + " hPa"
+                cardTemperatura.innerText = snapshot.val().TempBME + " °C";
+                cardCO2.innerText = snapshot.val().CO2 + " ppm";
+            })
+
+            dbRef.once('value', (snap) => {
+                var dadosGraficoCO2 = [];
+                var dadosGraficoLDR = [];
+                var dadosGraficoTempBME = [];
+                var dadosGraficoUmidadeBME = [];
+                snap.forEach(function (data) {
+                    dadosGraficoLDR.push({ y: data.val().LDR });
+                    dadosGraficoTempBME.push({ y: data.val().TempBME });
+                    dadosGraficoUmidadeBME.push({ y: data.val().UmidadeBME });
+                    dadosGraficoCO2.push({ y: data.val().CO2 });
+                })
+
+                var chartLDR = new CanvasJS.Chart("chartContainerLDR", {
+                    zoomEnabled: true,
+                    animationEnabled: true,
+                    theme: "light2",
+                    title: {
+                        text: "LDR - Sensor de Luminosidade"
+                    },
+                    axisY: {
+                        includeZero: false
+                    },
+                    data: [{
+                        type: "line",
+                        markerType: "none",
+                        dataPoints: dadosGraficoLDR
+                    }]
+                });
+                chartLDR.render();
+
+                var chartTemp = new CanvasJS.Chart("chartContainerTemp", {
+                    zoomEnabled: true,
+                    animationEnabled: true,
+                    theme: "light2",
+                    title: {
+                        text: "Temperatura BME"
+                    },
+                    axisY: {
+                        includeZero: false
+                    },
+                    data: [{
+                        type: "line",
+                        markerType: "circle",
+                        dataPoints: dadosGraficoTempBME
+                    }]
+                });
+                chartTemp.render();
+
+                var chartUmidade = new CanvasJS.Chart("chartContainerUmidade", {
+                    zoomEnabled: true,
+                    animationEnabled: true,
+                    theme: "light2",
+                    title: {
+                        text: "Umidade BME"
+                    },
+                    axisY: {
+                        includeZero: false
+                    },
+                    data: [{
+                        type: "line",
+                        dataPoints: dadosGraficoUmidadeBME
+                    }]
+                });
+                chartUmidade.render();
+
+                var chartUmidade = new CanvasJS.Chart("chartContainerCO2", {
+                    zoomEnabled: true,
+                    animationEnabled: true,
+                    theme: "light2",
+                    title: {
+                        text: "CO2"
+                    },
+                    axisY: {
+                        includeZero: false
+                    },
+                    data: [{
+                        type: "line",
+                        dataPoints: dadosGraficoCO2
+                    }]
+                });
+                chartUmidade.render();
+            })
+        }//Fim window.onload
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/addons/datatables.min.js"></script>
+    <script>
+        var dbRef = firebase.database().ref("/3C:71:BF:9E:30:FC").orderByKey();
+        dbRef.once('value', snap => {
+            var tableBody = document.getElementById('tableBody');
+            snap.forEach(function (data) {
+                var tr = document.createElement('tr');
+                var td1 = document.createElement('td');
+                td1.innerText = data.val().LDR;
+                tr.appendChild(td1);
+                var td2 = document.createElement('td');
+                td2.innerText = data.val().PressaoBME;
+                tr.appendChild(td2);
+                var td3 = document.createElement('td');
+                td3.innerText = data.val().TempBME;
+                tr.appendChild(td3);
+                var td4 = document.createElement('td');
+                td4.innerText = data.val().UmidadeBME;
+                tr.appendChild(td4);
+                var td5 = document.createElement('td');
+                td5.innerText = data.val().CO2;
+                tr.appendChild(td5);
+
+                //console.log(tr);
+                tableBody.appendChild(tr);
+            })
+
+        }).then(function () {
+            $('#dtBasicExample').DataTable({
+                "ordering": false
+            });
+            $('.dataTables_length').addClass('bs-select');
+        })
+
+    </script>
+</body>
+
+</html>
