@@ -21,5 +21,9 @@ Fazendo só o ajuste de main.js, a página aparece, mas os gráficos, números e
 
 Ajustei o MAC em duas linhas do index.html, mas continua não mostrando...
 
+Fiquei meio sem recursos. Acho improvável que seja conexão ou autenticação com canvas.js, ou algo com o bootstrap ou o popper (já que na conexão original funcionava).
+Acho mais provável que não esteja vindo dado por algum motivo. Para checar isso quero ver alguns valores de variáveis. Vou incluir no html um <p /> para mostrar mensagens de depuração geradas dentro dos scripts.
+
+
 ## gráficos
 veja os gráficos [aqui](web/index.html)
