@@ -311,7 +311,7 @@
             var dbRef = firebase.database().ref("/80:7D:3A:A2:44:F4");
             // depuração
             var deb= window.getElementById ("debug");
-            deb.innerHTML="Mensagem debug de teste.";
+            deb.innerHTML="Callback de atualização dos dados funcionando.";
             //Atualiza os cards a cada push
             dbRef.on('child_added', function (snapshot) {
                 //console.log(snapshot.val());
@@ -433,6 +433,9 @@
     <script type="text/javascript" src="js/addons/datatables.min.js"></script>
     <script>
         var dbRef = firebase.database().ref("/80:7D:3A:A2:44:F4").orderByKey();
+            // depuração
+            var deb= window.getElementById ("debug");
+            deb.innerHTML="Callback de atualização dos dados funcionando.";
         dbRef.once('value', snap => {
             var tableBody = document.getElementById('tableBody');
             snap.forEach(function (data) {
