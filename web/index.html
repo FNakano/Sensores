@@ -308,7 +308,7 @@
 
 
         window.onload = function () {
-            var dbRef = firebase.database().ref("/3C:71:BF:9E:2A:50");
+            var dbRef = firebase.database().ref("/80:7D:3A:A2:44:F4");
 
             //Atualiza os cards a cada push
             dbRef.on('child_added', function (snapshot) {
@@ -430,7 +430,7 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <script type="text/javascript" src="js/addons/datatables.min.js"></script>
     <script>
-        var dbRef = firebase.database().ref("/3C:71:BF:9E:2A:50").orderByKey();
+        var dbRef = firebase.database().ref("/80:7D:3A:A2:44:F4").orderByKey();
         dbRef.once('value', snap => {
             var tableBody = document.getElementById('tableBody');
             snap.forEach(function (data) {
