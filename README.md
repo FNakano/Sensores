@@ -24,7 +24,8 @@ Ajustei o MAC em duas linhas do index.html, mas continua não mostrando...
 Fiquei meio sem recursos. Acho improvável que seja conexão ou autenticação com canvas.js, ou algo com o bootstrap ou o popper (já que na conexão original funcionava).
 Acho mais provável que não esteja vindo dado por algum motivo. Para checar isso quero ver alguns valores de variáveis. Vou incluir no html um lt p /gt para mostrar mensagens de depuração geradas dentro dos scripts.
 Eu estava usando window.getElementById quando deveria ser document.getElementById para as mensagens de depuração. As mensagens não apareciam, mas curiosamente os dados (do meu db) pareciam ser carregados na tabela do final da página. Quando corrigi o 'document', e esperei um pouco, os gráfico apareceram. Como não atualizo a data/hora, aparece uma linha na leitura do LDR, que não sei pq lê algum ruído.
-  
+
+https://fnakano.github.io/Sensores/
   
 ## gráficos
 veja os gráficos [aqui](web/index.html)
