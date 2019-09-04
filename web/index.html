@@ -20,7 +20,7 @@
 </head>
 
 <body>
-
+    <p id="debug"> Lugar para mensagens de depuração. Sem mensagens. </p>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow .header">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Sensores EACH USP</a>
         <div class="dropdown text-left col-md-10 col-sm-9">
@@ -309,7 +309,9 @@
 
         window.onload = function () {
             var dbRef = firebase.database().ref("/80:7D:3A:A2:44:F4");
-
+            // depuração
+            var deb= window.getElementById ("debug");
+            deb.innerHTML="Mensagem debug de teste.";
             //Atualiza os cards a cada push
             dbRef.on('child_added', function (snapshot) {
                 //console.log(snapshot.val());
