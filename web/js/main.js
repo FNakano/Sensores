@@ -1,12 +1,12 @@
-var firebaseConfig = {
-    apiKey: "AIzaSyDnPyPz3GQ7rz9TnoHPZCWXPrJVef4R1VA",
-    authDomain: "redesensoresgit.firebaseapp.com",
-    databaseURL: "https://redesensoresgit.firebaseio.com",
-    projectId: "redesensoresgit",
-    storageBucket: "redesensoresgit.appspot.com",
-    messagingSenderId: "286786032389",
-    appId: "1:286786032389:web:875d71db46316436"
-};
+  var firebaseConfig = {
+    apiKey: "AIzaSyCtiBlFO9UFsjvp3V0TfHt1uK4ScAsQyTU",
+    authDomain: "sensor2-4e7a3.firebaseapp.com",
+    databaseURL: "https://sensor2-4e7a3.firebaseio.com",
+    projectId: "sensor2-4e7a3",
+    storageBucket: "sensor2-4e7a3.appspot.com",
+    messagingSenderId: "228736456413",
+    appId: "1:228736456413:web:e0934ffd9c2d50529dad34"
+  };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
