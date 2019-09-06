@@ -308,7 +308,8 @@
 
 
         window.onload = function () {
-            var dbRef = firebase.database().ref("/3C:71:BF:9E:30:FC");
+            var dbRef = firebase.database().ref("/3C:71:BF:9E:36:B8");
+# ("/3C:71:BF:9E:30:FC"); DOIT
 
             //Atualiza os cards a cada push
             dbRef.on('child_added', function (snapshot) {
@@ -425,7 +426,7 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <script type="text/javascript" src="js/addons/datatables.min.js"></script>
     <script>
-        var dbRef = firebase.database().ref("/3C:71:BF:9E:30:FC").orderByKey();
+        var dbRef = firebase.database().ref("/3C:71:BF:9E:36:B8").orderByKey();
         dbRef.once('value', snap => {
             var tableBody = document.getElementById('tableBody');
             snap.forEach(function (data) {
